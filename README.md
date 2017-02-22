@@ -1,1 +1,1 @@
-###react-native-grid-table
+###react-native-easy-table
