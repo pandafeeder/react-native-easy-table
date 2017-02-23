@@ -8,7 +8,7 @@ import Table, { BlankCell, SimpleCell } from 'react-native-easy-table'
 const MyComponent = (props) => {
   return(
       <View style={styles.container}>
-        <Table rowTitle={['a','b','c','d','e']}
+        <Table rowTitle={['A','B','C','D','E']}
              columnTitle={['a','b','c','d','e']}
              rowComponent={{com:SimpleCell, style:[{height:30}]}}
              columnComponent={{com:SimpleCell, height:30}}
@@ -18,7 +18,7 @@ const MyComponent = (props) => {
              cellComponent={{com:SimpleCell, style:{height: 30}}}
              blankComponent={{com:BlankCell}}
              highlightAndColor={{color:'red'}}
-             fillBlank
+             crossHighlight
              style={[styles.topBorder, styles.bottomBorder]}
         />
       </View>
