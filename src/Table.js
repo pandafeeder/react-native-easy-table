@@ -76,7 +76,7 @@ export default class Table extends Component {
 
     let frameRow = 
       <View style={[styles.flexRow]}>
-        {this.props.highlightAndColor&&this.crossHighlight
+        {this.props.highlightAndColor&&this.props.crossHighlight
           ? <TouchableOpacity
             style={[this.CrossComStyle, styles.flex1]} 
             index='all'
