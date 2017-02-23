@@ -8,16 +8,18 @@ import {
 
 //usage: <Table 
 //  rowTitle={[...]} 
+//  rowComponent={{com:xxx, style:{}}} 
 //  columnTitle={[...]} 
+//  columnComponent={{com:xxx, style:{}}}
 //  cellData={[...]} 
 //  cellComponent={{com:xxx, style:{}}} 
-//  rowComponent={{com:xxx, style:{}}} 
-//  crossComponent={{com:xxx, style:{}}}
 //  crossData={...}
-//  columnComponent={{com:xxx, style:{}}}
+//  crossComponent={{com:xxx, style:{}}}
 //  highlightAndColor={{color: xxx}}
 //  fillBlank
+//  blankComponent={{com:xxx}}
 //  crossHighlight
+//  style={...}
 //  />
 
 export default class Table extends Component {
@@ -39,6 +41,7 @@ export default class Table extends Component {
     this.ColComStyle   = this.props.columnComponent.style
     this.CellComStyle  = this.props.cellComponent.style
     this.BlankComStyle = this.props.blankComponent.style
+    this.colHeight = this.props.columnComponent.height
  }
 
   _highlightToggle(index) {
@@ -97,7 +100,10 @@ export default class Table extends Component {
             index={`r${i}`} key={i}
             onPress={() => this._highlightToggle(indexStr)}
           >
-            <this.ColCom style={[this._match(indexStr, this.state.highlightIndex)&&{backgroundColor: this.props.highlightAndColor.color}]}>{ele}</this.ColCom>
+            <this.ColCom style={[this._match(indexStr, this.state.highlightIndex)&&{backgroundColor: this.props.highlightAndColor.color}]}
+            >
+              {ele}
+            </this.ColCom>
           </TouchableOpacity>
         : <this.ColCom style={[this.ColComStyle, styles.flex1]} key={i}>{ele}</this.ColCom>
       )
@@ -132,16 +138,25 @@ export default class Table extends Component {
       cellList = []
     }
 
-    //height of table which removed rowTitle height
     let colCount = this.props.columnTitle.length
-    let height = realColCount === colCount
-      ? {height: null}
-      : {height: this.ColComStyle.height*colCount}
+    //height of table which removed rowTitle height
+    let heightTotal = realColCount === colCount
+      ? null
+      //: {height: this.colHeight*colCount}
+      : (() => {
+          if (!(typeof this.colHeight === 'number' && this.colHeight > 0)) {
+            throw new Error(`Table: when columnTitle's length > row count for table cells, 
+you have to explicitly set a height prop same as cellComponent's height for columnComponent,
+thus prevent table cells being squeezed to keep align with last
+column component's bottom`)
+          }
+          return {height: this.colHeight*colCount}
+        })()
 
     return(
         <View style={[this.props.style]}>
           {frameRow}
-          <View style={[height, styles.flexRow]}>
+          <View style={[heightTotal, styles.flexRow]}>
             {frameCol}
             <View style={[{flex:(1*rowCount)}, styles.justifyContentFlexStart]}>{cellTable}</View>
           </View>
