@@ -35,12 +35,12 @@ export default class Table extends Component {
     this.CrossCom = this.props.crossComponent.com
     this.ColCom   = this.props.columnComponent.com
     this.CellCom  = this.props.cellComponent.com
-    this.BlankCom = this.props.blankComponent.com
+    this.BlankCom = this.props.blankComponent&&this.props.blankComponent.com
     this.RowComStyle   = this.props.rowComponent.style
     this.CrossComStyle = this.props.crossComponent.style
     this.ColComStyle   = this.props.columnComponent.style
     this.CellComStyle  = this.props.cellComponent.style
-    this.BlankComStyle = this.props.blankComponent.style
+    this.BlankComStyle = this.props.blankComponent&&this.props.blankComponent.style
     this.colHeight = this.props.columnComponent.height
  }
 
