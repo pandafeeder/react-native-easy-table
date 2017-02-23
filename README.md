@@ -25,3 +25,6 @@ const MyComponent = (props) => {
   )
 }
 ```
+Above renders:
+
+![alt anm1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/QQ20170224-011233-HD.gif)
