@@ -31,6 +31,7 @@ Above renders:
 
 ##API
 | props name   | description |
+| ------------ | ----------- |
 | rowTitle     | An array contains data you want to show in Header row |
 | columnTitle  | An array contains data you want to show in leftmost column |
 | rowComponent | props receive a object with at least one key of com, which defines what component to be used as a cell for header row. Can also receive a style property used to define style for the component to be used, the style can be both an arry or object |
