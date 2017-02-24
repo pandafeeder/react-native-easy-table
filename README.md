@@ -29,7 +29,8 @@ Above renders:
 ![alt anm1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/QQ20170224-011233-HD.gif)
 
 
-##API
+##API:
+####props
 | props name   | description |
 | ------------ | ----------- |
 | rowTitle     | An array contains data you want to show in header row |
@@ -44,4 +45,12 @@ Above renders:
 | corssHighlight | Boolean, if defined, up-left corner cell will be wrapped by a TouchableOpacity component to enable to tapped event which trigers all cells' highlighting |
 | style | Define style for the Table component |
 | fillBlank | Boolean, if defined, when cell data counts % columnTitle is not zero, the remained data cell will not expand(default behavior) but stay tight as other cells do. At this time you need to define a BlankComponent to tell which component to be used to fill the blank places, please see below example |
-| BlankComponent | Component to be used to fill the blank places |
+| BlankComponent | Component to be used to fill the blank places, please see below example |
+
+####Components
+1. Table : the main component to be used
+2. SimpleCell : a simple Text component wrapped by View to render text
+3. BlankCell : a blank placeholder component to be used to fill the blank spaces
+
+
+##Example:
