@@ -36,8 +36,8 @@ Above renders:
 | ------------ | ----------- |
 | rowTitle     | An array contains data you want to show in header row |
 | columnTitle  | An array contains data you want to show in leftmost column |
-| rowComponent | Props receive a object with at least one key of com, which defines what component to be used as a cell for header row. Can also receive a style property used to define style for the component to be used, the style can be both an arry or object |
-| columnComponent | Props receive a object with at least one key of com, which defines what compoent to be used as a cell for leftmost column. Can also receive a style property used to define style for the component to be used, the style can be both an arrary or object|
+| rowComponent | Props receive a object with at least one key of com, which defines what component to be used as a cell for header row(sure you can use your own component). Can also receive a style property used to define style for the component to be used, the style can be both an arry or object |
+| columnComponent | Props receive a object with at least one key of com, which defines what compoent to be used as a cell for leftmost column cells(sure you can use your own component). Can also receive a style property used to define style for the component to be used, the style can be both an arrary or object|
 | crossData    | Define data to show in the up-left corner cell |
 | crossComponent | Define component to be used as the up-left corner cell |
 | cellData     | An array contains data for all cells except header row and leftmost column |
@@ -46,7 +46,7 @@ Above renders:
 | corssHighlight | Boolean, if defined, up-left corner cell will be wrapped by a TouchableOpacity component to enable to tapped event which trigers all cells' highlighting |
 | style | Define style for the Table component |
 | fillBlank | Boolean, if defined, when cell (data counts)%(columnTitle count)is not zero, the remained data cell will not expand(default behavior) but stay tight as other cells do. At this time you need to define a BlankComponent to tell which component to be used to fill the blank places, please see below example |
-| BlankComponent | Component to be used to fill the blank places, please see below example |
+| BlankComponent | Component to be used to fill the blank places(sure you can use your own component), please see below example |
 
 ####Components
 * Table : the main component to be used
@@ -55,3 +55,52 @@ Above renders:
 
 
 ##Example:
+####default behavior: expand
+```javascript
+import Table, { SimpleCell } from 'react-native-easy-table'
+
+const MyComponent = (props) => {
+  return(
+      <View style={styles.container}>
+        <Table rowTitle={['A','B','C','D','E']}
+             columnTitle={['a','b','c','d','e']}
+             rowComponent={{com:Square, style:{height:30, backgroundColor: 'lightgreen'}}}
+             columnComponent={{com:Square, style:{backgroundColor: 'lightblue'}}}
+             crossComponent={{com:Square}}
+             crossData={'X'}
+             cellData={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]}
+             cellComponent={{com:Square, style:[{height:30},{backgroundColor: 'orange'}]}}
+             highlightAndColor={{color:'red'}}
+             crossHighlight
+             style={[styles.topBorder, styles.bottomBorder]}
+        />
+      </View>
+  )
+}
+```
+
+####use fillBlank and BlankComponent to prevent expanding
+```javascript
+import Table, { SimpleCell, BlankCell } from 'react-native-easy-table'
+
+const MyComponent = (props) => {
+  return(
+      <View style={styles.container}>
+        <Table rowTitle={['A','B','C','D','E']}
+             columnTitle={['a','b','c','d','e']}
+             rowComponent={{com:Square, style:{height:30, backgroundColor: 'lightgreen'}}}
+             columnComponent={{com:Square, style:{backgroundColor: 'lightblue'}}}
+             crossComponent={{com:Square}}
+             crossData={'X'}
+             cellData={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]}
+             cellComponent={{com:Square, style:[{height:30},{backgroundColor: 'orange'}]}}
+             highlightAndColor={{color:'red'}}
+             crossHighlight
+             fillBlank
+             blankComponent={{com:BlankCell,style:{backgroundColor: 'grey'}}}
+             style={[styles.topBorder, styles.bottomBorder]}
+        />
+      </View>
+  )
+}
+```
