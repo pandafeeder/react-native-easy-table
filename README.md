@@ -1,5 +1,5 @@
-##react-native-easy-table
-####a simple javascript implentation of Table for React Native
+#react-native-easy-table
+###a simple javascript implentation of Table for React Native
 
 ##Usage Example:
 ```javascript
@@ -27,6 +27,7 @@ const MyComponent = (props) => {
 Above renders:
 
 ![alt anm1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/QQ20170224-011233-HD.gif)
+![alt png1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/QQ20170224-233609.png)
 
 
 ##API:
@@ -44,7 +45,7 @@ Above renders:
 | highlightAndColor | If defined, rowComponent and columnComponent will be wrapped by a TouchableOpacity component to enable an tapped event which trigers corresponding row and column to be highlighted |
 | corssHighlight | Boolean, if defined, up-left corner cell will be wrapped by a TouchableOpacity component to enable to tapped event which trigers all cells' highlighting |
 | style | Define style for the Table component |
-| fillBlank | Boolean, if defined, when cell data counts % columnTitle is not zero, the remained data cell will not expand(default behavior) but stay tight as other cells do. At this time you need to define a BlankComponent to tell which component to be used to fill the blank places, please see below example |
+| fillBlank | Boolean, if defined, when cell (data counts)%(columnTitle count)is not zero, the remained data cell will not expand(default behavior) but stay tight as other cells do. At this time you need to define a BlankComponent to tell which component to be used to fill the blank places, please see below example |
 | BlankComponent | Component to be used to fill the blank places, please see below example |
 
 ####Components
