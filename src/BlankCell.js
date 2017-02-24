@@ -4,8 +4,8 @@ import {
   StyleSheet,
 } from 'react-native'
 
-const BlankCell = () => (
-  <View style={styles.blank}></View>
+const BlankCell = (props) => (
+  <View style={[styles.blank, props.style]}></View>
 )
 
 export default BlankCell
