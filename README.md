@@ -78,6 +78,7 @@ const MyComponent = (props) => {
   )
 }
 ```
+![alt png1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/expand.png)
 
 ####use fillBlank and BlankComponent to prevent expanding
 ```javascript
@@ -104,3 +105,4 @@ const MyComponent = (props) => {
   )
 }
 ```
+![alt png1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/noexpand.png)
