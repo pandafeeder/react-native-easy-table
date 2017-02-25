@@ -29,8 +29,8 @@ export default class Table extends Component {
       highlighted: 'none',
       highlightIndex: 'none',
     }
-    this._highlightToggle = this._highlightToggle.bind(this)
-    this._match = this._match.bind(this)
+    //this._highlightToggle = this._highlightToggle.bind(this)
+    //this._match = this._match.bind(this)
     this.RowCom   = this.props.rowComponent.com
     this.CrossCom = this.props.crossComponent.com
     this.ColCom   = this.props.columnComponent.com
@@ -44,7 +44,7 @@ export default class Table extends Component {
     this.colHeight = this.props.columnComponent.height
  }
 
-  _highlightToggle(index) {
+  _highlightToggle = (index) => {
     if (this.state.highlightIndex === index) {
       this.setState({highlightIndex: 'none'})
     } else {
@@ -52,11 +52,22 @@ export default class Table extends Component {
     }
   }
 
-  _match(index, highlightIndex) {
+  _match = (index, highlightIndex) => {
     if (highlightIndex === 'all') return true
     let t = new RegExp(highlightIndex)
     return t.test(index)
   }
+
+  _calHeight = () => {
+    if (!(typeof this.colHeight === 'number' && this.colHeight > 0)) {
+            throw new Error(`Table: when columnTitle's length > row count for table cells, 
+you have to explicitly set a height prop same as cellComponent's height for columnComponent,
+thus prevent table cells being squeezed to keep align with last
+column component's bottom`)
+    }
+    return {height: this.colHeight*colCount}
+  }
+
 
   render() {
     let row = this.props.rowTitle.map((ele, i) => {
@@ -143,15 +154,7 @@ export default class Table extends Component {
     let heightTotal = realColCount === colCount
       ? null
       //: {height: this.colHeight*colCount}
-      : (() => {
-          if (!(typeof this.colHeight === 'number' && this.colHeight > 0)) {
-            throw new Error(`Table: when columnTitle's length > row count for table cells, 
-you have to explicitly set a height prop same as cellComponent's height for columnComponent,
-thus prevent table cells being squeezed to keep align with last
-column component's bottom`)
-          }
-          return {height: this.colHeight*colCount}
-        })()
+      : this._calHeight()
 
     return(
         <View style={[this.props.style]}>
