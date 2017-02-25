@@ -64,12 +64,12 @@ const MyComponent = (props) => {
       <View style={styles.container}>
         <Table rowTitle={['A','B','C','D','E']}
              columnTitle={['a','b','c','d','e']}
-             rowComponent={{com:Square, style:{height:30, backgroundColor: 'lightgreen'}}}
-             columnComponent={{com:Square, style:{backgroundColor: 'lightblue'}}}
-             crossComponent={{com:Square}}
+             rowComponent={{com:SimpleCell, style:{height:30, backgroundColor: 'lightgreen'}}}
+             columnComponent={{com:SimpleCell, style:{backgroundColor: 'lightblue'}}}
+             crossComponent={{com:SimpleCell}}
              crossData={'X'}
              cellData={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]}
-             cellComponent={{com:Square, style:[{height:30},{backgroundColor: 'orange'}]}}
+             cellComponent={{com:SimpleCell, style:[{height:30},{backgroundColor: 'orange'}]}}
              highlightAndColor={{color:'red'}}
              crossHighlight
              style={[styles.topBorder, styles.bottomBorder]}
@@ -89,12 +89,12 @@ const MyComponent = (props) => {
       <View style={styles.container}>
         <Table rowTitle={['A','B','C','D','E']}
              columnTitle={['a','b','c','d','e']}
-             rowComponent={{com:Square, style:{height:30, backgroundColor: 'lightgreen'}}}
-             columnComponent={{com:Square, style:{backgroundColor: 'lightblue'}}}
-             crossComponent={{com:Square}}
+             rowComponent={{com:SimpleCell, style:{height:30, backgroundColor: 'lightgreen'}}}
+             columnComponent={{com:SimpleCell, style:{backgroundColor: 'lightblue'}}}
+             crossComponent={{com:SimpleCell}}
              crossData={'X'}
              cellData={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]}
-             cellComponent={{com:Square, style:[{height:30},{backgroundColor: 'orange'}]}}
+             cellComponent={{com:SimpleCell, style:[{height:30},{backgroundColor: 'orange'}]}}
              highlightAndColor={{color:'red'}}
              crossHighlight
              fillBlank
