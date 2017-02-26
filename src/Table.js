@@ -58,14 +58,13 @@ export default class Table extends Component {
     return t.test(index)
   }
 
-  _calHeight = () => {
+  _calHeight = (colCount) => {
     if (!(typeof this.colHeight === 'number' && this.colHeight > 0)) {
             throw new Error(`Table: when columnTitle's length > row count for table cells, 
 you have to explicitly set a height prop same as cellComponent's height for columnComponent,
 thus prevent table cells being squeezed to keep align with last
 column component's bottom`)
     }
-    let colCount = this.props.columnTitle.length
     return {height: this.colHeight*colCount}
   }
 
@@ -150,11 +149,12 @@ column component's bottom`)
       cellList = []
     }
 
+    let colCount = this.props.columnTitle.length
     //height of table which removed rowTitle height
     let heightTotal = realColCount === colCount
       ? null
       //: {height: this.colHeight*colCount}
-      : this._calHeight()
+      : this._calHeight(colCount)
 
     return(
         <View style={[this.props.style]}>
