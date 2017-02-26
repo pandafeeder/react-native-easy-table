@@ -65,6 +65,7 @@ you have to explicitly set a height prop same as cellComponent's height for colu
 thus prevent table cells being squeezed to keep align with last
 column component's bottom`)
     }
+    let colCount = this.props.columnTitle.length
     return {height: this.colHeight*colCount}
   }
 
@@ -149,7 +150,6 @@ column component's bottom`)
       cellList = []
     }
 
-    let colCount = this.props.columnTitle.length
     //height of table which removed rowTitle height
     let heightTotal = realColCount === colCount
       ? null
