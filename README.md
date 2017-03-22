@@ -1,7 +1,7 @@
-#react-native-easy-table
-###a simple javascript implentation of Table for React Native
+# react-native-easy-table
+### a simple javascript implentation of Table for React Native
 
-##Usage Example:
+## Usage Example:
 ```javascript
 import Table, { SimpleCell } from 'react-native-easy-table'
 
@@ -30,8 +30,8 @@ Above renders:
 ![alt png1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/QQ20170224-233609.png)
 
 
-##API:
-####props
+## API:
+#### props
 | props name   | description |
 | ------------ | ----------- |
 | rowTitle     | An array contains data you want to show in header row |
@@ -48,14 +48,14 @@ Above renders:
 | fillBlank | Boolean, if defined, when cell (data counts)%(columnTitle count)is not zero, the remained data cell will not expand(default behavior) but stay tight as other cells do. At this time you need to define a BlankComponent to tell which component to be used to fill the blank places, please see below example |
 | BlankComponent | Component to be used to fill the blank places(sure you can use your own component), please see below example |
 
-####Components
+#### Components
 * Table : the main component to be used
 * SimpleCell : a simple Text component wrapped by View to render text
 * BlankCell : a blank placeholder component to be used to fill the blank spaces
 
 
-##Example:
-####default behavior: expand
+## Example:
+#### default behavior: expand
 ```javascript
 import Table, { SimpleCell } from 'react-native-easy-table'
 
@@ -80,7 +80,7 @@ const MyComponent = (props) => {
 ```
 ![alt png1](https://github.com/pandafeeder/react-native-easy-table/blob/master/screenshoot/expand.png)
 
-####use fillBlank and BlankComponent to prevent expanding
+#### use fillBlank and BlankComponent to prevent expanding
 ```javascript
 import Table, { SimpleCell, BlankCell } from 'react-native-easy-table'
 
